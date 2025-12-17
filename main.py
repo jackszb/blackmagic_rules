@@ -69,7 +69,6 @@ def read_list_from_url(url):
     filtered_rows = []
     rules = []
 
-    # Handle logical "AND" rules (ex: AND(DOMAIN,google.com)(IP-CIDR,1.2.3.4/24))
     if 'AND' in df['pattern'].values:
         and_rows = df[df['pattern'].str.contains('AND', na=False)]
         for _, row in and_rows.iterrows():
@@ -78,13 +77,9 @@ def read_list_from_url(url):
                 "mode": "and",
                 "rules": []
             }
-            # Convert row to a comma-separated string
             pattern = ",".join(row.values.astype(str))
-
-            # Find all parenthetical blocks in the pattern
             components = re.findall(r'\((.*?)\)', pattern)
             for component in components:
-                # Check if one of our MAP_DICT keys is in there
                 for keyword in MAP_DICT.keys():
                     if keyword in component:
                         match = re.search(f'{keyword},(.*)', component)
@@ -95,7 +90,6 @@ def read_list_from_url(url):
                             })
             rules.append(rule)
 
-    # Filter out rows containing "AND"
     for index, row in df.iterrows():
         if 'AND' not in row['pattern']:
             filtered_rows.append(row)
@@ -123,16 +117,13 @@ def parse_and_convert_to_dataframe(link):
     a DataFrame of rules. Also captures logical rules if present.
     """
     rules = []
-    # Determine the file type based on extension
     if link.endswith('.yaml') or link.endswith('.txt'):
         try:
             yaml_data = read_yaml_from_url(link)
             rows = []
-            # If the loaded YAML is not a string, we expect a key 'payload'
             if not isinstance(yaml_data, str):
                 items = yaml_data.get('payload', [])
             else:
-                # Fallback if the YAML data is actually just text
                 lines = yaml_data.splitlines()
                 line_content = lines[0] if lines else ''
                 items = line_content.split()
@@ -145,14 +136,12 @@ def parse_and_convert_to_dataframe(link):
                     else:
                         if address.startswith('+') or address.startswith('.'):
                             pattern = 'DOMAIN-SUFFIX'
-                            # Remove leading plus or dot
                             address = address.lstrip('+.')
                         else:
                             pattern = 'DOMAIN'
                 else:
                     pattern, address = item.split(',', 1)
 
-                # If there's still another comma, split again
                 if ',' in address:
                     address = address.split(',', 1)[0]
 
@@ -188,28 +177,20 @@ def parse_list_file(link, output_directory):
     generate a JSON structure, and optionally compile it to .srs.
     """
     try:
-        # Parse in a thread (though we are only passing one link here)
         with concurrent.futures.ThreadPoolExecutor() as executor:
             results = list(executor.map(parse_and_convert_to_dataframe, [link]))
-            # results is a list of (df, rules) tuples
             dfs = [df for df, rules in results]
             rules_list = [rules for df, rules in results]
 
-            # Combine all dataframes
             df = pd.concat(dfs, ignore_index=True)
 
-        # Remove lines with '#' in pattern and lines not in MAP_DICT
         df = df[~df['pattern'].str.contains('#')].reset_index(drop=True)
         df = df[df['pattern'].isin(MAP_DICT.keys())].reset_index(drop=True)
         df = df.drop_duplicates().reset_index(drop=True)
-
-        # Map the pattern to consistent keys (DOMAIN-SUFFIX -> domain_suffix, etc.)
         df['pattern'] = df['pattern'].replace(MAP_DICT)
 
-        # Make sure output directory exists
         os.makedirs(output_directory, exist_ok=True)
 
-        # Build the final JSON structure
         result_rules = {"version": 3, "rules": []}
         domain_entries = []
         domain_suffix_entries = []
@@ -219,11 +200,14 @@ def parse_list_file(link, output_directory):
 
         grouped_data = df.groupby('pattern')['address'].apply(list).to_dict()
 
+        # Merged rule entry to collect all fields
+        rule_entry = {}
+
         for pattern, addresses in grouped_data.items():
-            if pattern == 'domain_suffix':
-                domain_suffix_entries.extend([addr.strip() for addr in addresses])
-            elif pattern == 'domain':
+            if pattern == 'domain':
                 domain_entries.extend([addr.strip() for addr in addresses])
+            elif pattern == 'domain_suffix':
+                domain_suffix_entries.extend([addr.strip() for addr in addresses])
             elif pattern == 'domain_keyword':
                 domain_keyword_entries.extend([addr.strip() for addr in addresses])
             elif pattern == 'domain_regex':
@@ -231,19 +215,21 @@ def parse_list_file(link, output_directory):
             elif pattern == 'ip_cidr':
                 ip_cidr_entries.extend([addr.strip() for addr in addresses])
 
-        # Add entries in the right order
+        # Combine all rule entries into one rule object
         if domain_entries:
-            result_rules["rules"].append({'domain': list(set(domain_entries))})
+            rule_entry["domain"] = list(set(domain_entries))
         if domain_suffix_entries:
-            result_rules["rules"].append({'domain_suffix': list(set(domain_suffix_entries))})
+            rule_entry["domain_suffix"] = list(set(domain_suffix_entries))
         if domain_keyword_entries:
-            result_rules["rules"].append({'domain_keyword': list(set(domain_keyword_entries))})
+            rule_entry["domain_keyword"] = list(set(domain_keyword_entries))
         if domain_regex_entries:
-            result_rules["rules"].append({'domain_regex': list(set(domain_regex_entries))})
+            rule_entry["domain_regex"] = list(set(domain_regex_entries))
         if ip_cidr_entries:
-            result_rules["rules"].append({'ip_cidr': list(set(ip_cidr_entries))})
+            rule_entry["ip_cidr"] = list(set(ip_cidr_entries))
 
-        # Sort and write the JSON
+        if rule_entry:
+            result_rules["rules"].append(rule_entry)
+
         file_basename = os.path.basename(link).split('.')[0]
         file_name = os.path.join(output_directory, f"{file_basename}.json")
 
@@ -252,7 +238,6 @@ def parse_list_file(link, output_directory):
             result_rules_str = result_rules_str.replace('\\\\', '\\')
             output_file.write(result_rules_str)
 
-        # Optionally compile to .srs with sing-box (requires sing-box to be installed)
         srs_path = file_name.replace(".json", ".srs")
         os.system(f"sing-box rule-set compile --output {srs_path} {file_name}")
 
@@ -292,7 +277,7 @@ if __name__ == "__main__":
     
     print(f"Found {len(all_list_urls)} .list files in the repository.")
 
-    output_dir = "./"
+    output_dir = "./"  # you can change this if desired
     result_file_names = []
 
     for link in all_list_urls:
