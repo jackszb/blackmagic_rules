@@ -8,9 +8,7 @@
         "router.asus.com",
         "setmeup.arubanetworks.com",
         "www.asusrouter.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa",
         "0.in-addr.arpa",
@@ -129,9 +127,7 @@
         "ts.net",
         "wifi.cmcc",
         "zte.home"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "0.0.0.0/8",
         "10.0.0.0/8",

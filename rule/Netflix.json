@@ -5,17 +5,13 @@
         "e13252.dscg.akamaiedge.net",
         "h-netflix.online-metrix.net",
         "netflix.com.edgesuite.net"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "apiproxy-device-prod-nlb-",
         "dualstack.apiproxy-",
         "dualstack.ichnaea-web-",
         "netflixdnstest"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "cookielaw.org",
         "fast.com",
@@ -47,9 +43,7 @@
         "nflxvideo.net",
         "onetrust.com",
         "us-west-2.amazonaws.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "103.87.204.0/22",
         "107.23.255.0/26",

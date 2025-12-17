@@ -4,9 +4,7 @@
       "domain": [
         "eaasserts-a.akamaihd.net",
         "originasserts.akamaized.net"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "anthemgame.com",
         "anthemthegame.com",

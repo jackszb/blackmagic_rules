@@ -43,17 +43,13 @@
         "wscont2.apps.microsoft.com",
         "www.microsoft.com",
         "xb.dlservice.microsoft.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "1drv",
         "microsoft",
         "onedrive",
         "skydrive"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "1drv.com",
         "1drv.ms",

@@ -33,9 +33,7 @@
         "tieba-ares.cdn.bcebos.com",
         "tiebac.baidu.com",
         "tiebapic.baidu.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "tieba.baidu.com"
       ]

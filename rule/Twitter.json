@@ -3,9 +3,7 @@
     {
       "domain_keyword": [
         "twitter"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "ads-twitter.com",
         "cms-twdigitalassets.com",
@@ -32,9 +30,7 @@
         "twvid.com",
         "vine.co",
         "x.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "192.133.76.0/22",
         "199.59.148.0/22",

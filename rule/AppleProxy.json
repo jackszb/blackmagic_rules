@@ -29,9 +29,7 @@
         "testflight.apple.com",
         "tv.applemusic.com",
         "uts-api.itunes.apple.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "apple-dns.net",
         "apple.news",

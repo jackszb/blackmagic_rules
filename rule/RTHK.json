@@ -13,9 +13,7 @@
         "rthkradiopth-live.akamaized.net",
         "rthktv31-live.akamaized.net",
         "rthktv32-live.akamaized.net"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "rthk.hk",
         "rthk.org.hk"

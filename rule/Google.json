@@ -16,18 +16,14 @@
         "translate.googleapis.com",
         "voice.telephony.goog",
         "www.googleapis.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "appspot",
         "blogspot",
         "gmail",
         "google",
         "recaptcha"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "0emm.com",
         "1e100.net",
@@ -737,9 +733,7 @@
         "xplr.co",
         "zukunftswerkstatt.de",
         "zynamics.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "172.110.32.0/21",
         "173.194.0.0/16",

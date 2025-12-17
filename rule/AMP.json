@@ -3,9 +3,7 @@
     {
       "domain": [
         "amp.akamaized.net"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "amp.dev",
         "ampproject.com",

@@ -3,9 +3,7 @@
     {
       "domain": [
         "teams.events.data.microsoft.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "teams.cdn.live.net",
         "teams.live.com",

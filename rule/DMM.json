@@ -20,9 +20,7 @@
         "navismithapis-cdn.com",
         "tenco.cc",
         "wheel-soft.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "125.6.189.7/32",
         "203.104.209.7/32"

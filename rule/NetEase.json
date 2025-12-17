@@ -3,9 +3,7 @@
     {
       "domain": [
         "netease.ugcvideoss.ourdvs.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "126.am",
         "126.com",
@@ -121,9 +119,7 @@
         "yunxinvcloud.com",
         "yunxinvideo.com",
         "zhuanzfx.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "101.71.154.241/32",
         "103.126.92.132/31",

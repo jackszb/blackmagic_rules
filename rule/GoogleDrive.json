@@ -3,9 +3,7 @@
     {
       "domain": [
         "www.googleapis.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "docs.google.com",
         "drive.google.com",

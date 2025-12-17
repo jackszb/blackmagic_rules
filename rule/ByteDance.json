@@ -330,9 +330,7 @@
         "zjcdn.com",
         "zjgslb.com",
         "zjurl.cn"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "114.246.10.65/32"
       ]

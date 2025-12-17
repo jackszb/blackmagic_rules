@@ -108,9 +108,7 @@
         "www4-static.gog-statics.com",
         "xn--9kr7l.com",
         "xn--flw351e.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         ".tmall.com",
         "alicdn",
@@ -121,9 +119,7 @@
         "microsoft",
         "officecdn",
         "taobao"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "0.zone",
         "00.net",
@@ -94618,9 +94614,7 @@
         "zzzyy.com",
         "zzzzaaaa.com",
         "zzzzzz.me"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "1.255.62.0/24",
         "101.32.118.0/23",

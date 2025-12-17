@@ -3,9 +3,7 @@
     {
       "domain": [
         "http-inputs-notion.splunkcloud.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "notion-static.com",
         "notion.com",

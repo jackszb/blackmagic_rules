@@ -10,14 +10,10 @@
         "openaicomproductionae4b.blob.core.windows.net",
         "production-openaicom-storage.azureedge.net",
         "static.cloudflareinsights.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "openai"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "ai.com",
         "algolia.net",
@@ -43,9 +39,7 @@
         "sentry.io",
         "stripe.com",
         "turn.livekit.cloud"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "24.199.123.28/32",
         "64.23.132.171/32"

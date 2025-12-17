@@ -10,16 +10,12 @@
         "steamstore-a.akamaihd.net",
         "steamusercontent-a.akamaihd.net",
         "steamuserimages-a.akamaihd.net"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "steambroadcast",
         "steamstore",
         "steamuserimages"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "cdn-ali.content.steamchina.com",
         "cdn-qc.content.steamchina.com",

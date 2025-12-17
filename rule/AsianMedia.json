@@ -21,22 +21,16 @@
         "mobileso.bz.mgtv.com",
         "upos-hz-mirrorakam.akamaized.net",
         "www.bilibili.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "cn-hk-eq-bcache-"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "api.mgtv.com",
         "iq.com",
         "wetv.vip",
         "wetvinfo.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "103.44.56.0/22",
         "116.211.202.206/32",

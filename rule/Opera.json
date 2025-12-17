@@ -16,9 +16,7 @@
         "operasoftware.com",
         "otvs.tv",
         "xn--cer18jcpe41t.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "141.0.8.0/21",
         "185.26.180.0/22",

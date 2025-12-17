@@ -5,9 +5,7 @@
         "dns.alidns.com",
         "doh.360.cn",
         "doh.pub"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "1.12.12.12/32"
       ]

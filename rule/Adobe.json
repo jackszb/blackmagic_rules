@@ -3,14 +3,10 @@
     {
       "domain": [
         "cc-ext-prod-pkgs.s3.amazonaws.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "adobe"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "10xfotolia.com",
         "2o7.net",

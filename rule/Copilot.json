@@ -22,14 +22,10 @@
         "static.cloudflareinsights.com",
         "sydney.bing.com",
         "www.bing.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "openaicom-api"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "algolia.net",
         "api.microsoftapp.net",
@@ -57,9 +53,7 @@
         "sentry.io",
         "stripe.com",
         "turn.livekit.cloud"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "24.199.123.28/32",
         "64.23.132.171/32"

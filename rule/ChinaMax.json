@@ -428,9 +428,7 @@
         "zycfcdn.gdwlcloud.com",
         "zzlive.zzc-media.com",
         "zzq12345.gearhostpreview.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         ".tmall.com",
         "alicdn",
@@ -445,9 +443,7 @@
         "stripe",
         "taobao",
         "weibo"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "0.zone",
         "00.net",
@@ -97268,9 +97264,7 @@
         "zzzyy.com",
         "zzzzaaaa.com",
         "zzzzzz.me"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "0.0.0.0/32",
         "1.0.1.0/24",

@@ -6,9 +6,7 @@
         "ap-oversea.agora.io",
         "ap-oversea2.agora.io",
         "report-oversea.agora.io"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "103.59.49.10/32",
         "103.65.41.166/32",

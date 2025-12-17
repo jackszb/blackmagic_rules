@@ -5,16 +5,12 @@
         "ai.google.dev",
         "alkalimakersuite-pa.clients6.google.com",
         "makersuite.google.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "colab",
         "developerprofiles",
         "generativelanguage"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "apis.google.com",
         "bard.google.com",

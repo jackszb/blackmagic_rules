@@ -992,9 +992,7 @@
         "zycfcdn.gdwlcloud.com",
         "zzlive.zzc-media.com",
         "zzq12345.gearhostpreview.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "0.0.0.0/32",
         "1.180.237.9/32",

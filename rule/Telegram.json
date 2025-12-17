@@ -4,14 +4,10 @@
       "domain": [
         "api.imem.app",
         "api.swiftgram.app"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "nicegram"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "cdn-telegram.org",
         "comments.app",
@@ -35,9 +31,7 @@
         "tg.dev",
         "tx.me",
         "usercontent.dev"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "109.239.140.0/24",
         "149.154.160.0/20",

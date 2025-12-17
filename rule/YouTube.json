@@ -5,14 +5,10 @@
         "music.youtube.com",
         "youtubei.googleapis.com",
         "yt3.ggpht.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "youtube"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "ggpht.cn",
         "ggpht.com",
@@ -193,9 +189,7 @@
         "youtubemobilesupport.com",
         "yt.be",
         "ytimg.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "172.110.32.0/21",
         "216.73.80.0/20",

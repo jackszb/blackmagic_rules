@@ -137,9 +137,7 @@
         "youpin.cn",
         "youpin.com.cn",
         "zhutidasai.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "110.43.63.242/32",
         "120.133.33.222/32",

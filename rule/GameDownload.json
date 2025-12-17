@@ -38,9 +38,7 @@
         "us.cdn.blizzard.com",
         "xvcf1.xboxlive.com",
         "xvcf2.xboxlive.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "cdn.ubi.com",
         "dyn.riotcdn.net",

@@ -137,17 +137,13 @@
         "www.torrent.eu.org",
         "www.torrentsnipe.info",
         "www.wareztorrent.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "announce",
         "chdbits",
         "m-team",
         "torrent"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "1ptba.com",
         "2xfree.org",
@@ -272,9 +268,7 @@
         "u2.dmhy.org",
         "uhdbits.org",
         "xauat6.edu.cn"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "207.241.226.111/32",
         "207.241.231.226/32",

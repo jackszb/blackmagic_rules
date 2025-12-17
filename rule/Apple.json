@@ -270,9 +270,7 @@
         "www.apple.com.edgekey.net",
         "www.apple.com.edgekey.net.globalredir.akadns.net",
         "xp.apple.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "apple-support.akadns.net",
         "apple.com.akadns.net",
@@ -281,9 +279,7 @@
         "icloud.com.akadns.net",
         "smp-device",
         "testflight"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "100beatscheap.com",
         "12diasdepresentesdeitunes.com",
@@ -1834,9 +1830,7 @@
         "xn--ohq11k7pl25iyo8a.cn",
         "xn--ruq8a011kt6y.xn--hxt814e",
         "yourmonsterbeats.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "139.178.128.0/18",
         "144.178.0.0/19",

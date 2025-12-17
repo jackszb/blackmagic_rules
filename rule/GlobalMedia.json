@@ -29,9 +29,7 @@
         "ocvideo.apple.com",
         "rpg.pic-imges.com",
         "rthklive2-lh.akamaihd.net"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "abematv.akamaized.net",
         "apiproxy-device-prod-nlb-",
@@ -57,9 +55,7 @@
         "uk-live",
         "voddazn",
         "youtube"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "112263.com",
         "20thcenturystudios.com.au",
@@ -1317,9 +1313,7 @@
         "zeeuk.com",
         "zeriamerikes.com",
         "zype.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "1.201.0.0/24",
         "1.37.35.6/32",

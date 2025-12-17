@@ -8,15 +8,11 @@
         "vod-dash-ww-live.akamaized.net",
         "vod-thumb-ww-live.akamaized.net",
         "vs-cmaf-pushb-ww-live.akamaized.net"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "bbcfmt",
         "uk-live"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "bb-static.com",
         "bbc",

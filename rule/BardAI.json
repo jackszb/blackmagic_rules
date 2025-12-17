@@ -6,9 +6,7 @@
         "alkalimakersuite-pa.clients6.google.com",
         "generativelanguage.googleapis.com",
         "makersuite.google.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "bard.google.com",
         "deepmind.com",

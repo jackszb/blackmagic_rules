@@ -90,9 +90,7 @@
         "www.wip2.adobe.com",
         "www.wip3.adobe.com",
         "www.wip4.adobe.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "100.24.211.130/32",
         "13.227.103.57/32",

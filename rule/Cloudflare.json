@@ -45,9 +45,7 @@
         "videodelivery.net",
         "warp.plus",
         "workers.dev"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "103.21.244.0/22",
         "103.22.200.0/22",

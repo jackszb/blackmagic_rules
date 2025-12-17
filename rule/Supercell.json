@@ -4,9 +4,7 @@
       "domain_suffix": [
         "brawlstars.com",
         "brawlstarsgame.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "13.210.25.233/32",
         "13.212.170.102/32",

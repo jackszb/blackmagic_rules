@@ -16,18 +16,14 @@
         "video-search-1258344701.shiply-cdn.qq.com",
         "video-vip-1258344701.shiply-cdn.qq.com",
         "yoo.gtimg.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "pgdt.gtimg.cn",
         "qqvideo.gtimg.com",
         "v.qq.com",
         "v.smtcdns.com",
         "video.qq.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "58.49.111.117/32",
         "58.49.111.79/32",

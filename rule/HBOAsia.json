@@ -18,14 +18,10 @@
         "players.brightcove.net",
         "s3-ap-southeast-1.amazonaws.com",
         "wmff.warnermediacdn.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         ".hbogoasia."
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "hbogoasia.com",
         "hbogoasia.hk"

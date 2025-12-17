@@ -41,9 +41,7 @@
         "worldofwarcraft.com",
         "wow.nosdn.127.net",
         "wowchina.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "103.4.114.233/32",
         "103.4.115.248/32",

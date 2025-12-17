@@ -3,9 +3,7 @@
     {
       "domain_keyword": [
         "qcloud"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "3322.net",
         "3322.org",
@@ -39,9 +37,7 @@
         "synology.cn",
         "tpddns.cn",
         "whatismyip.akamai.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "100.24.218.0/24",
         "18.214.42.0/24",

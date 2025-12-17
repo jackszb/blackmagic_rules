@@ -20,9 +20,7 @@
         "tracking.intl.miui.com",
         "wc.51.la",
         "zgsdk.zhugeio.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "analytics.",
         "app-analytics",
@@ -33,9 +31,7 @@
         "ioslog.",
         "pc-log.",
         "pclog."
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "0.myikas.com",
         "0.net.easyjet.com",
@@ -39053,9 +39049,7 @@
         "zzaoea.costacrociere.it",
         "zzqyxd.smartpozyczka.pl",
         "zzsqqx.shopjapan.co.jp"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "0.0.0.1/32",
         "109.123.233.251/32",

@@ -3,16 +3,12 @@
     {
       "domain": [
         "oneclient.sfx.ms"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "1drv",
         "onedrive",
         "skydrive"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "1drv.com",
         "livefilestore.com",

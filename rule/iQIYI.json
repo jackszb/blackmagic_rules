@@ -3,9 +3,7 @@
     {
       "domain_keyword": [
         "qiyi"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "71.am",
         "71.am.com",
@@ -41,9 +39,7 @@
         "qy.com",
         "qy.net",
         "suike.cn"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "101.224.0.0/13",
         "103.44.56.0/22",

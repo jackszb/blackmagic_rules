@@ -10,17 +10,13 @@
         "originasserts.akamaized.net",
         "store-images.s-microsoft.com",
         "xz.pphimalayanrt.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "epicgames",
         "steambroadcast",
         "steamstore",
         "steamuserimages"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "100classicbooks.com",
         "ac-pocketcamp.com",
@@ -561,9 +557,7 @@
         "xn--mts47c3w9b1qr.net",
         "yogify.com",
         "yoshisnewisland.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "103.4.114.233/32",
         "103.4.115.248/32",

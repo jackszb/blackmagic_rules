@@ -25,9 +25,7 @@
         "self.events.data.microsoft.com",
         "tv.apple.com",
         "wego.here.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         ".pinterest.",
         "1e100",
@@ -49,9 +47,7 @@
         "twitter",
         "uk-live",
         "whatsapp"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "1password.com",
         "4everproxy.com",
@@ -895,9 +891,7 @@
         "zoomgov.com",
         "zophar.net",
         "zyxel.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "1.201.0.0/24",
         "103.2.28.0/22",

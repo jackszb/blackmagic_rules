@@ -73,15 +73,11 @@
         "video-search-1258344701.shiply-cdn.qq.com",
         "video-vip-1258344701.shiply-cdn.qq.com",
         "yoo.gtimg.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "bilibili",
         "qiyi"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "0co3geye.cn",
         "1.letvlive.com",
@@ -319,9 +315,7 @@
         "zmzapi.net",
         "zmzfile.com",
         "zygbdszt.net.cn"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "101.224.0.0/13",
         "101.71.154.241/32",

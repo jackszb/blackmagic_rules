@@ -36,9 +36,7 @@
         "yandex.ua",
         "yandex.uz",
         "yastatic.net"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "100.43.64.0/19",
         "141.8.128.0/18",

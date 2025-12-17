@@ -20,16 +20,12 @@
         "kuaishou.httpdns.pro",
         "lofter.httpdns.c.163.com",
         "music.httpdns.c.163.com"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "httpdns.baidu.com",
         "httpdns.baidubce.com",
         "httpsdns.baidu.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "101.124.19.122/32",
         "101.91.140.124/32",

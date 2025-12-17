@@ -17,9 +17,7 @@
         "weixin.com",
         "www.libvideo.com",
         "www.yxssp.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         ".tmall.com",
         "alicdn",
@@ -30,9 +28,7 @@
         "microsoft",
         "officecdn",
         "taobao"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "00cdn.com",
         "0123456789.com",
@@ -3619,9 +3615,7 @@
         "zybang.com",
         "zyh365.com",
         "zzdtec.com"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "1.255.62.0/24",
         "101.32.118.0/23",

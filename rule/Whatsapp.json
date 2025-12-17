@@ -3,22 +3,16 @@
     {
       "domain": [
         "graph.facebook.com"
-      ]
-    },
-    {
+      ],
       "domain_keyword": [
         "whatsapp"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "bintray.com",
         "whatsapp.biz",
         "whatsapp.com",
         "whatsapp.net"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "158.85.224.160/27",
         "158.85.46.128/27",

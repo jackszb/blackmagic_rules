@@ -3,9 +3,7 @@
     {
       "domain_keyword": [
         "ttvnw"
-      ]
-    },
-    {
+      ],
       "domain_suffix": [
         "ext-twitch.tv",
         "jtvnw.net",
@@ -15,9 +13,7 @@
         "twitch.tv",
         "twitchcdn.net",
         "twitchsvc.net"
-      ]
-    },
-    {
+      ],
       "ip_cidr": [
         "103.53.48.0/23",
         "185.42.204.0/22",
