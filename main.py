@@ -233,7 +233,7 @@ def parse_list_file(link, output_directory):
 
         # Add entries in the right order
         if domain_entries:
-            result_rules["rules"].insert(0, {'domain': list(set(domain_entries))})
+            result_rules["rules"].append({'domain': list(set(domain_entries))})
         if domain_suffix_entries:
             result_rules["rules"].append({'domain_suffix': list(set(domain_suffix_entries))})
         if domain_keyword_entries:
