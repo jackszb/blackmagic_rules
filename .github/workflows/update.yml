@@ -45,16 +45,36 @@ jobs:
       with:
         python-version: 3.x
 
-    - name: Install dependencies
+    - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
         pip install pandas requests pyyaml
 
-    - name: Run main.py
+    - name: Clean old rule files
+      run: |
+        mkdir -p ./rule
+        rm -f ./rule/*.json
+        rm -f ./rule/*.srs
+        echo "Old rule files removed."
+
+    - name: Run main.py and enforce JSON version 3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: python main.py
-      working-directory: ./rule
+      run: |
+        python main.py
+        echo "Updating JSON version to 3 before compiling..."
+        for f in ./rule/*.json; do
+          jq '.version=3' "$f" > "$f.tmp" && mv "$f.tmp" "$f"
+          echo "Updated $f to version 3"
+        done
+
+    - name: Compile sing-box rule binaries
+      run: |
+        for f in ./rule/*.json; do
+          srs_file="${f%.json}.srs"
+          sing-box rule-set compile --output "$srs_file" "$f"
+          echo "Compiled $f -> $srs_file"
+        done
 
     - name: Debug rule folder
       run: |
