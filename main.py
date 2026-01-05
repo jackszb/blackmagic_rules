@@ -17,7 +17,6 @@ token = os.environ.get("GITHUB_TOKEN", "")
 if token:
     HEADERS["Authorization"] = f"Bearer {token}"
 
-# Mapping dictionary to unify different rule patterns into consistent keys.
 MAP_DICT = {
     'DOMAIN-SUFFIX': 'domain_suffix',
     'HOST-SUFFIX': 'domain_suffix',
@@ -41,42 +40,21 @@ MAP_DICT = {
 }
 
 def read_yaml_from_url(url):
-    """
-    Downloads a YAML file from a URL and returns the parsed YAML data.
-    """
     response = requests.get(url, headers=HEADERS)
     response.raise_for_status()
-    yaml_data = yaml.safe_load(response.text)
-    return yaml_data
+    return yaml.safe_load(response.text)
 
 def read_list_from_url(url):
-    """
-    Downloads a .list file (or generic text/csv) from a URL and parses
-    it into a DataFrame. Also handles special “AND” logical rules.
-    """
     response = requests.get(url, headers=HEADERS)
     if response.status_code != 200:
-        return None
-
+        return None, []
     csv_data = StringIO(response.text)
-    df = pd.read_csv(
-        csv_data,
-        header=None,
-        names=['pattern', 'address', 'other', 'other2', 'other3'],
-        on_bad_lines='skip'
-    )
-
-    filtered_rows = []
+    df = pd.read_csv(csv_data, header=None, names=['pattern', 'address', 'other', 'other2', 'other3'], on_bad_lines='skip')
     rules = []
-
     if 'AND' in df['pattern'].values:
         and_rows = df[df['pattern'].str.contains('AND', na=False)]
         for _, row in and_rows.iterrows():
-            rule = {
-                "type": "logical",
-                "mode": "and",
-                "rules": []
-            }
+            rule = {"type": "logical", "mode": "and", "rules": []}
             pattern = ",".join(row.values.astype(str))
             components = re.findall(r'\((.*?)\)', pattern)
             for component in components:
@@ -85,22 +63,13 @@ def read_list_from_url(url):
                         match = re.search(f'{keyword},(.*)', component)
                         if match:
                             value = match.group(1)
-                            rule["rules"].append({
-                                MAP_DICT[keyword]: value
-                            })
+                            rule["rules"].append({MAP_DICT[keyword]: value})
             rules.append(rule)
-
-    for index, row in df.iterrows():
-        if 'AND' not in row['pattern']:
-            filtered_rows.append(row)
+    filtered_rows = [row for _, row in df.iterrows() if 'AND' not in row['pattern']]
     df_filtered = pd.DataFrame(filtered_rows, columns=['pattern', 'address', 'other', 'other2', 'other3'])
     return df_filtered, rules
 
 def is_ipv4_or_ipv6(address):
-    """
-    Checks if a string is a valid IPv4 or IPv6 network (CIDR).
-    Returns 'ipv4', 'ipv6', or None.
-    """
     try:
         ipaddress.IPv4Network(address)
         return 'ipv4'
@@ -112,10 +81,6 @@ def is_ipv4_or_ipv6(address):
             return None
 
 def parse_and_convert_to_dataframe(link):
-    """
-    Given a link (.yaml, .txt, or .list), download and parse it into
-    a DataFrame of rules. Also captures logical rules if present.
-    """
     rules = []
     if link.endswith('.yaml') or link.endswith('.txt'):
         try:
@@ -125,31 +90,18 @@ def parse_and_convert_to_dataframe(link):
                 items = yaml_data.get('payload', [])
             else:
                 lines = yaml_data.splitlines()
-                line_content = lines[0] if lines else ''
-                items = line_content.split()
-
+                items = lines[0].split() if lines else []
             for item in items:
                 address = item.strip("'")
                 if ',' not in item:
-                    if is_ipv4_or_ipv6(item):
-                        pattern = 'IP-CIDR'
-                    else:
-                        if address.startswith('+') or address.startswith('.'):
-                            pattern = 'DOMAIN-SUFFIX'
-                            address = address.lstrip('+.')
-                        else:
-                            pattern = 'DOMAIN'
+                    pattern = 'IP-CIDR' if is_ipv4_or_ipv6(item) else ('DOMAIN-SUFFIX' if address.startswith(('+', '.')) else 'DOMAIN')
+                    if pattern == 'DOMAIN-SUFFIX':
+                        address = address.lstrip('+.')  
                 else:
                     pattern, address = item.split(',', 1)
-
-                if ',' in address:
-                    address = address.split(',', 1)[0]
-
-                rows.append({
-                    'pattern': pattern.strip(),
-                    'address': address.strip(),
-                    'other': None
-                })
+                    if ',' in address:
+                        address = address.split(',', 1)[0]
+                rows.append({'pattern': pattern.strip(), 'address': address.strip(), 'other': None})
             df = pd.DataFrame(rows, columns=['pattern', 'address', 'other'])
         except:
             df, rules = read_list_from_url(link)
@@ -158,10 +110,6 @@ def parse_and_convert_to_dataframe(link):
     return df, rules
 
 def sort_dict(obj):
-    """
-    Recursively sort the keys of dictionaries (and nested dicts/lists).
-    Ensures a consistent ordering in the final JSON output.
-    """
     if isinstance(obj, dict):
         return {k: sort_dict(obj[k]) for k in sorted(obj)}
     elif isinstance(obj, list) and all(isinstance(elem, dict) for elem in obj):
@@ -172,18 +120,10 @@ def sort_dict(obj):
         return obj
 
 def parse_list_file(link, output_directory):
-    """
-    Main function to parse a single .list (or .yaml/.txt) file from a URL,
-    generate a JSON structure, and optionally compile it to .srs.
-    """
     try:
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            results = list(executor.map(parse_and_convert_to_dataframe, [link]))
-            dfs = [df for df, rules in results]
-            rules_list = [rules for df, rules in results]
-
-            df = pd.concat(dfs, ignore_index=True)
-
+        df, rules = parse_and_convert_to_dataframe(link)
+        if df is None:
+            return None
         df = df[~df['pattern'].str.contains('#')].reset_index(drop=True)
         df = df[df['pattern'].isin(MAP_DICT.keys())].reset_index(drop=True)
         df = df.drop_duplicates().reset_index(drop=True)
@@ -199,8 +139,6 @@ def parse_list_file(link, output_directory):
         ip_cidr_entries = []
 
         grouped_data = df.groupby('pattern')['address'].apply(list).to_dict()
-
-        # Merged rule entry to collect all fields
         rule_entry = {}
 
         for pattern, addresses in grouped_data.items():
@@ -215,7 +153,6 @@ def parse_list_file(link, output_directory):
             elif pattern == 'ip_cidr':
                 ip_cidr_entries.extend([addr.strip() for addr in addresses])
 
-        # Combine all rule entries into one rule object
         if domain_entries:
             rule_entry["domain"] = list(set(domain_entries))
         if domain_suffix_entries:
@@ -239,35 +176,31 @@ def parse_list_file(link, output_directory):
             output_file.write(result_rules_str)
 
         srs_path = file_name.replace(".json", ".srs")
-        os.system(f"sing-box rule-set compile --output {srs_path} {file_name}")
+        ret = os.system(f"sing-box rule-set compile --output {srs_path} {file_name}")
+        if ret != 0:
+            print(f"Failed to compile SRS: {srs_path}")
 
+        print(f"Generated: {file_name} and {srs_path}")
         return file_name
     except Exception as e:
         print(f'Error fetching link, skipped: {link} , reason: {str(e)}')
         return None
 
 def get_list_files_from_github(owner, repo, path="rule/QuantumultX"):
-    """
-    Recursively fetch all *.list file links from a GitHub repository folder.
-    """
     base_api_url = f"https://api.github.com/repos/{owner}/{repo}/contents"
     url = f"{base_api_url}/{path}"
     response = requests.get(url, headers=HEADERS)
     if response.status_code != 200:
         print(f"Warning: Could not access {url} . HTTP {response.status_code}")
         return []
-
     contents = response.json()
     results = []
-
     for item in contents:
         if item["type"] == "dir":
-            subdir_results = get_list_files_from_github(owner, repo, item["path"])
-            results.extend(subdir_results)
+            results.extend(get_list_files_from_github(owner, repo, item["path"]))
         elif item["type"] == "file" and item["name"].endswith(".list"):
             raw_url = f"https://raw.githubusercontent.com/{owner}/{repo}/master/{item['path']}"
             results.append(raw_url)
-
     return results
 
 if __name__ == "__main__":
@@ -277,7 +210,9 @@ if __name__ == "__main__":
     
     print(f"Found {len(all_list_urls)} .list files in the repository.")
 
-    output_dir = "./"  # you can change this if desired
+    output_dir = "./rule"
+    os.makedirs(output_dir, exist_ok=True)
+
     result_file_names = []
 
     for link in all_list_urls:
@@ -285,5 +220,5 @@ if __name__ == "__main__":
         if result_file_name:
             result_file_names.append(result_file_name)
 
-    for file_name in result_file_names:
-        print("Generated:", file_name)
+    if not result_file_names:
+        print("No files were generated.")
