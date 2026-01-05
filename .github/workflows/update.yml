@@ -85,11 +85,14 @@ jobs:
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
+
         git add ./rule/*.json
         git add ./rule/*.srs
+
         if git diff --staged --quiet; then
           echo "No changes to commit"
           exit 0
         else
           git commit -m "Update rules"
           git push --force
+        fi
